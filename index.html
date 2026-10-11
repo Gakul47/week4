@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Makes the website responsive on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Image Slider Library</title>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- JavaScript -->
+    <script src="slider.js" defer></script>
+</head>
+
+<body>
+
+    <main class="page">
+
+        <section class="slider" aria-label="Image Slider">
+
+            <!-- Visible slider area -->
+            <div class="slider-window">
+
+                <!-- Slides are placed horizontally inside this track -->
+                <div class="slider-track" id="sliderTrack">
+
+                    <div class="slide">
+                        <img
+                            src="https://picsum.photos/id/1018/1200/700"
+                            alt="Mountain landscape">
+                    </div>
+
+                    <div class="slide">
+                        <img
+                            src="https://picsum.photos/id/1015/1200/700"
+                            alt="Mountain and river landscape">
+                    </div>
+
+                    <div class="slide">
+                        <img
+                            src="https://picsum.photos/id/1016/1200/700"
+                            alt="Forest and mountain landscape">
+                    </div>
+
+                    <div class="slide">
+                        <img
+                            src="https://picsum.photos/id/1020/1200/700"
+                            alt="Rocky mountain landscape">
+                    </div>
+
+                </div>
+
+                <!-- Previous button -->
+                <button
+                    class="slider-btn prev"
+                    id="prevBtn"
+                    type="button"
+                    aria-label="Previous image">
+                    &#10094;
+                </button>
+
+                <!-- Next button -->
+                <button
+                    class="slider-btn next"
+                    id="nextBtn"
+                    type="button"
+                    aria-label="Next image">
+                    &#10095;
+                </button>
+
+            </div>
+
+            <!-- JavaScript creates the dots here -->
+            <div
+                class="dots"
+                id="dots"
+                aria-label="Choose a slide">
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+</html>

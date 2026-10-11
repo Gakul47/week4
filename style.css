@@ -1,0 +1,289 @@
+/* ------------------------------
+   Basic Reset
+------------------------------ */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* ------------------------------
+   Page
+------------------------------ */
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px 15px;
+
+    font-family: Arial, sans-serif;
+
+    background: linear-gradient(
+        135deg,
+        #dbeafe,
+        #ede9fe
+    );
+}
+
+
+/* Main container */
+
+.page {
+    width: min(100%, 1000px);
+}
+
+
+/* ------------------------------
+   Slider
+------------------------------ */
+
+.slider {
+    width: 100%;
+}
+
+
+/* ------------------------------
+   Slider Window
+------------------------------ */
+
+.slider-window {
+    position: relative;
+
+    width: 100%;
+
+    /*
+       Hides slides that are outside
+       the visible area.
+    */
+    overflow: hidden;
+
+    border-radius: 16px;
+
+    background: #111827;
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.20);
+}
+
+
+/* ------------------------------
+   Slider Track
+------------------------------ */
+
+.slider-track {
+    display: flex;
+
+    width: 100%;
+
+    /*
+       This is changed by JavaScript.
+    */
+    transform: translateX(0);
+
+    /*
+       Creates the horizontal
+       sliding animation.
+    */
+    transition: transform 0.45s ease;
+
+    /*
+       Helps the browser optimize
+       the transform animation.
+    */
+    will-change: transform;
+}
+
+
+/* ------------------------------
+   Individual Slide
+------------------------------ */
+
+.slide {
+    /*
+       Every slide occupies exactly
+       the width of the slider.
+    */
+    flex: 0 0 100%;
+
+    width: 100%;
+
+    aspect-ratio: 12 / 7;
+}
+
+
+/* ------------------------------
+   Images
+------------------------------ */
+
+.slide img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    max-width: 100%;
+
+    /*
+       Keeps the image proportional
+       without distortion.
+    */
+    object-fit: cover;
+}
+
+
+/* ------------------------------
+   Navigation Buttons
+------------------------------ */
+
+.slider-btn {
+    position: absolute;
+
+    top: 50%;
+
+    z-index: 5;
+
+    width: 48px;
+    height: 48px;
+
+    border: none;
+    border-radius: 50%;
+
+    transform: translateY(-50%);
+
+    cursor: pointer;
+
+    color: white;
+
+    background: rgba(17, 24, 39, 0.70);
+
+    font-size: 27px;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+/* Button hover */
+
+.slider-btn:hover {
+    background: rgba(17, 24, 39, 0.95);
+}
+
+
+/* Button click */
+
+.slider-btn:active {
+    transform: translateY(-50%) scale(0.92);
+}
+
+
+/* Keyboard focus */
+
+.slider-btn:focus-visible,
+.dot:focus-visible {
+    outline: 3px solid #38bdf8;
+    outline-offset: 3px;
+}
+
+
+/* Previous button */
+
+.prev {
+    left: 16px;
+}
+
+
+/* Next button */
+
+.next {
+    right: 16px;
+}
+
+
+/* ------------------------------
+   Navigation Dots
+------------------------------ */
+
+.dots {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 18px;
+}
+
+
+/* Individual dot */
+
+.dot {
+    width: 11px;
+    height: 11px;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    background: #94a3b8;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+/* Active dot */
+
+.dot.active {
+    background: #2563eb;
+
+    transform: scale(1.35);
+}
+
+
+/* ------------------------------
+   Mobile Responsive Design
+------------------------------ */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 20px 10px;
+    }
+
+    .slider-window {
+        border-radius: 10px;
+    }
+
+    .slider-btn {
+        width: 38px;
+        height: 38px;
+
+        font-size: 21px;
+    }
+
+    .prev {
+        left: 9px;
+    }
+
+    .next {
+        right: 9px;
+    }
+
+    .dots {
+        margin-top: 13px;
+    }
+}
